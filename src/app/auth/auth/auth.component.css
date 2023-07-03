@@ -1,0 +1,26 @@
+mat-sidenav-container {
+  height: calc( 100vh - 65px );
+}
+
+.content {
+  height: calc( 100vh - 65px );
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+  display: flex;
+  font-size: 2rem;
+}
+
+.avatar {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.logo {
+  position: relative;
+  left: 25%;
+  right: 50%;
+}

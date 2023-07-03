@@ -1,0 +1,58 @@
+<mat-toolbar >
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened">
+      menu
+    </mat-icon>
+    <mat-icon *ngIf="sidenav.opened">
+      close
+    </mat-icon>
+  </button>
+  <span>Sport Gym UNEDL</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav="matSidenav" mode="side" opened>
+    <img class="avatar mat-elevation-z8" src="https://cdn-icons-png.flaticon.com/256/1077/1077114.png" alt="">
+
+    <mat-divider></mat-divider>
+
+    <button mat-button color="light" class="menu-button">
+      <mat-icon>home</mat-icon>
+      <span class="btn-label"><a [routerLink]="['/dashboard']">Dashboard</a></span>
+    </button>
+
+    <button mat-button color="light" class="menu-button">
+      <mat-icon>person</mat-icon>
+      <span class="btn-label"><a [routerLink]="['/usuarios/list']">Usuarios</a></span>
+    </button>
+
+    <button mat-button color="light" class="menu-button">
+      <mat-icon>check_box</mat-icon>
+      <span class="btn-label"><a [routerLink]="['/asistencias/list']">Asistencias</a></span>
+    </button>
+
+    <button mat-button color="light" class="menu-button">
+      <mat-icon>payment</mat-icon>
+      <span class="btn-label"><a [routerLink]="['/pagos/list']">Pagos</a></span>
+    </button>
+
+    <button mat-button color="light" class="menu-button">
+      <mat-icon>summarize</mat-icon>
+      <span class="btn-label"><a [routerLink]="['/reportes/list']">Reportes</a></span>
+    </button>
+
+    <button mat-button color="light" class="menu-button">
+      <mat-icon>logout</mat-icon>
+      <span class="btn-label">Logout</span>
+    </button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
