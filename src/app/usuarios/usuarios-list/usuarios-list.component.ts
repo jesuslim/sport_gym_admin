@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from '../usuarios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuarios-list',
@@ -11,18 +12,34 @@ export class UsuariosListComponent implements OnInit{
   /**
    *
    */
-  constructor(private usuariosService: UsuariosService) {}
+  constructor( private usuarioService: UsuariosService, private router: Router) {}
 
   ngOnInit(): void {
     this.usuarios();
   }
 
   usuarios() {
-    this.usuariosService.getUsuarios().subscribe((response) => {
+    console.log('list of users to display');
+
+    this.usuarioService.getUsuarios().subscribe((response) => {
       this.users = response;
       console.log(this.users);
 
     })
+  }
+
+
+  toCreate() {
+    this.router.navigate(['./dashboard/usuarios/create']);
+  }
+  toEdit(id: string) {
+    this.router.navigate(['./dashboard/usuarios/edit/'+id]);
+  }
+  toDetails() {
+    this.router.navigate(['./dashboard/usuarios/list']);
+  }
+  destroy(){
+
   }
 
 }
