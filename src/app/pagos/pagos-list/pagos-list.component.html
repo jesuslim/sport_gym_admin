@@ -1,1 +1,42 @@
-<p>pagos-list works!</p>
+<div class="container p-3">
+  <div class="row">
+    <p class="m-3">Usuarios</p>
+
+    <div class="col-10">
+      <div class="card ">
+        <div class="card-header">
+          <p>Lista de Miembros</p>
+        </div>
+        <div class="div d-flex flex-row-reverse">
+          <button class="btn btn-primary m-3" (click)="toCreate()">Agragar Usuario</button>
+        </div>
+        <div class="card-body ">
+
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th scope="col"> Miembro </th>
+                <th scope="col"> Miembro que Registro </th>
+                <th scope="col"> Monto </th>
+                <th scope="col"> Metodo_Pago </th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr *ngFor=" let pago of pagos">
+                <td> {{pago.ID_Miembro}} </td>
+                <td> {{pago.ID_Miembro_Registrador}} </td>
+                <td> {{pago.Monto}} </td>
+                <td> {{pago.Metodo_Pago}} </td>
+              </tr> -->
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
