@@ -54,6 +54,7 @@ mat-sidenav {
   margin-left: 32px;
   display: flex;
   font-size: 2rem;
+  overflow-x: auto;
   overflow-y: auto;
 }
 

@@ -15,4 +15,8 @@ export class UsuariosService {
     return this.http.get<any>(`${this.apiUrl}miembros`);
   }
 
+  getUsuariosById(id: any): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}miembros/edit/${id}`);
+  }
+
 }
