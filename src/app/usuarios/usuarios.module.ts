@@ -6,6 +6,7 @@ import { UsuariosEditComponent } from './usuarios-edit/usuarios-edit.component';
 import { UsuariosRoutingModule } from './usuarios-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { UsuariosDetailsComponent } from './usuarios-details/usuarios-details.component';
 
 
 
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
   declarations: [
     UsuariosListComponent,
     UsuariosCreateComponent,
-    UsuariosEditComponent
+    UsuariosEditComponent,
+    UsuariosDetailsComponent
   ],
   imports: [
     CommonModule,

@@ -35,8 +35,8 @@ export class UsuariosListComponent implements OnInit{
   toEdit(id: string) {
     this.router.navigate(['./dashboard/usuarios/edit/'+id]);
   }
-  toDetails() {
-    this.router.navigate(['./dashboard/usuarios/list']);
+  toDetails(id: string) {
+    this.router.navigate(['./dashboard/usuarios/details/'+id]);
   }
   destroy(){
 
