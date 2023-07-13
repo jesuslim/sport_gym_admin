@@ -18,7 +18,6 @@ export class PagosListComponent implements OnInit{
   }
 
   toCreate() {
-    console.log('Crear pago');
     this.router.navigate(['./dashboard/pagos/create']);
   }
 }

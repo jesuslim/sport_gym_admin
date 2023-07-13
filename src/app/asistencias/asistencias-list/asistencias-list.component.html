@@ -1,1 +1,44 @@
-<p>asistencias-list works!</p>
+<div class="container p-3">
+  <div class="row">
+    <p class="m-3">Asistencias</p>
+
+    <div class="col-10">
+      <div class="card ">
+        <div class="card-header">
+          <p>Segimiento de Asistencias/p>
+        </div>
+        <div class="div d-flex flex-row-reverse">
+          <button class="btn btn-primary m-3" (click)="toCreate()">Agragar Usuario</button>
+        </div>
+        <div class="card-body ">
+
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th scope="col"> Miembro </th>
+                <th scope="col"> Fecha </th>
+                <th scope="col"> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr *ngFor=" let asistencia of asistencias">
+                <td> {{asistencia.ID_Miembro}} </td>
+                <td> {{asistencia.Fecha}} </td>
+                <td>
+                  <button (click)="toDetails(asistencia.ID_Asistencia)" class="btn btn-info">details</button>
+                  <button (click)="toEdit(asistencia.ID_Asistencia)" class="btn btn-secondary">edit</button>
+                  <button (click)="destroy()" class="btn btn-danger">delete</button>
+                </td>
+              </tr> -->
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
