@@ -7,6 +7,7 @@ import { UsuariosRoutingModule } from './usuarios-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { UsuariosDetailsComponent } from './usuarios-details/usuarios-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,9 @@ import { UsuariosDetailsComponent } from './usuarios-details/usuarios-details.co
     CommonModule,
     UsuariosRoutingModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UsuariosModule { }

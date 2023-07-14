@@ -9,7 +9,7 @@ import { UsuariosService } from '../usuarios.service';
 })
 export class UsuariosDetailsComponent implements OnInit{
   miembroId: string = "";
-  miembroInfo: any[] = [];
+  miembroInfo: any= {};
   /**
    *
    */

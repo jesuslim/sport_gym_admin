@@ -14,9 +14,14 @@ export class UsuariosService {
   getUsuarios(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}miembros`);
   }
-
   getUsuariosById(id: any): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}miembros/edit/${id}`);
+  }
+  updateUsuarios(data: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}miembros/update/${data.id}`, data);
+  }
+  deleteUsuario(id: any): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}miembros/delete/${id}`);
   }
 
 }
