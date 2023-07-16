@@ -1,0 +1,7 @@
+/* select option {
+  display: none;
+}
+
+select option[selected] {
+  display: block;
+} */

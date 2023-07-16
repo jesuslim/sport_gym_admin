@@ -1,1 +1,22 @@
-<p>asistencias-edit works!</p>
+<div class="container form-container">
+  <form role="form" (ngSubmit)="update(filterForm.value)">
+
+    <div class="form-group m-3" [formGroup]="filterForm">
+      <label class="mb-2 form-control" for="Perfil">Selecciona un miembro:</label>
+      <input type="text" class="form-control mb-2" formControlName="filterText" placeholder="Filtro de usuarios">
+      <select
+      name="ID_Miembro"
+      class="form-select"
+      data-live-search="true"
+      formControlName="selectedMiembro"
+      id="ID_Miembro">
+        <option
+        *ngFor="let miembro of filteredMiembros"
+        [value]="miembro.ID_Miembro">{{miembro.Matricula +'  '+ miembro.Nombre +' '+ miembro.Apellido_Paterno}}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary form-control mb-4">Submit</button>
+  </form>
+
+</div>

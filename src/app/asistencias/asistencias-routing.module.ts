@@ -8,7 +8,7 @@ import { AsistenciasEditComponent } from './asistencias-edit/asistencias-edit.co
 const routes: Routes = [
   { path:'list', component: AsistenciasListComponent },
   { path:'create', component: AsistenciasCreateComponent },
-  { path:'edit/:1', component: AsistenciasEditComponent },
+  { path:'edit/:id', component: AsistenciasEditComponent },
   { path:'**', component: AsistenciasListComponent },
 ]
 

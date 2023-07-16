@@ -101,8 +101,7 @@ export class UsuariosEditComponent implements OnInit{
     });
   }
 
-  editForm() {
-  }
+
 
   findEstados() {
     this.estadosService.getEstados().subscribe((response) => {
