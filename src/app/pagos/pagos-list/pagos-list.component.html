@@ -1,33 +1,35 @@
 <div class="container p-3">
   <div class="row">
-    <p class="m-3">Usuarios</p>
+    <h2 class="m-3">Pagos</h2>
 
     <div class="col-10">
       <div class="card ">
         <div class="card-header">
-          <p>Lista de Miembros</p>
+          <h4>Lista de Pagos</h4>
         </div>
         <div class="div d-flex flex-row-reverse">
           <button class="btn btn-primary m-3" (click)="toCreate()">Agragar Usuario</button>
         </div>
-        <div class="card-body ">
+        <div class="card-body">
 
           <table class="table table-responsive">
             <thead>
               <tr>
-                <th scope="col"> Miembro </th>
-                <th scope="col"> Miembro que Registro </th>
                 <th scope="col"> Monto </th>
                 <th scope="col"> Metodo_Pago </th>
+                <th scope="col"> Matricula de Usuario</th>
+                <th scope="col"> Nombre de Usuario</th>
+                <th scope="col"> Apellido de Usuario</th>
               </tr>
             </thead>
             <tbody>
-              <!-- <tr *ngFor=" let pago of pagos">
-                <td> {{pago.ID_Miembro}} </td>
-                <td> {{pago.ID_Miembro_Registrador}} </td>
+              <tr *ngFor=" let pago of pagos">
                 <td> {{pago.Monto}} </td>
                 <td> {{pago.Metodo_Pago}} </td>
-              </tr> -->
+                <td> {{pago.Matricula}} </td>
+                <td> {{pago.Nombre}} </td>
+                <td> {{pago.Apellido_Paterno +' '+ pago.Apellido_Materno}} </td>
+              </tr>
 
             </tbody>
           </table>

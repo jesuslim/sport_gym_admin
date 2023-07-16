@@ -1,0 +1,9 @@
+.container{
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+}
+.card-body{
+  text-align: center;
+  overflow-x: auto;
+}
