@@ -7,21 +7,24 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UsuariosService {
-  apiUrl: any = `${environment.apiUrl}/api/`
+  apiUrl: any = `${environment.apiUrl}/api/miembros`
 
   constructor( private http: HttpClient) { }
 
   getUsuarios(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}miembros`);
+    return this.http.get<any>(`${this.apiUrl}`);
   }
   getUsuariosById(id: any): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}miembros/edit/${id}`);
+    return this.http.get<any>(`${this.apiUrl}/edit/${id}`);
+  }
+  saveUsuario(data: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/create`, data);
   }
   updateUsuarios(data: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}miembros/update/${data.id}`, data);
+    return this.http.put<any>(`${this.apiUrl}/update/${data.id}`, data);
   }
   deleteUsuario(id: any): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}miembros/delete/${id}`);
+    return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
   }
 
 }

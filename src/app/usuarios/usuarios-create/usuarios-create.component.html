@@ -18,14 +18,16 @@
     </div>
     <div class="form-group m-3">
       <label class="mb-2 form-control" for="Perfil">Programa al que Perteneces:</label>
-      <select name="Perfil" class="form-control" formControlName="Perfil" id="Perfil">
-        <option value=""></option>
+      <select name="ID_Perfil" class="form-control" formControlName="ID_Perfil" id="ID_Perfil">
+        <option *ngFor="let perfil of perfiles" value="{{perfil.ID_Perfil}}">{{perfil.Nombre}}</option>
       </select>
     </div>
     <div class="form-group m-3">
       <label class="mb-2 form-control" for="Genero">Genero</label>
       <select name="Genero" class="form-control" formControlName="Genero" id="Genero">
-        <option value=""></option>
+        <option value="Masculino">Masculino</option>
+        <option value="Femenino">Femenino</option>
+        <option value="Otro">Otro</option>
       </select>
     </div>
     <div class="form-group m-3">
@@ -38,14 +40,14 @@
     </div>
     <div class="form-group m-3">
       <label class="mb-2 form-control" for="Estado">Estado:</label>
-      <select name="Estado" class="form-control" formControlName="Estado" id="Estado">
-        <option value=""></option>
+      <select name="ID_Estado" class="form-control" formControlName="ID_Estado" id="ID_Estado" (change)="setMunicipios()">
+        <option *ngFor="let estado of estados" value="{{estado.ID_Estado}}">{{estado.Estado}}</option>
       </select>
     </div>
     <div class="form-group m-3">
       <label class="mb-2 form-control" for="Municipio">Municipio:</label>
-      <select name="Municipio" class="form-control" formControlName="Municipio" id="Municipio">
-        <option value=""></option>
+      <select name="ID_Municipio" class="form-control" formControlName="ID_Municipio" id="ID_Municipio">
+        <option *ngFor="let municipio of municipios" value="{{municipio.ID_Municipio}}">{{municipio.Municipio}}</option>
       </select>
     </div>
     <div class="form-group m-3">
@@ -59,7 +61,8 @@
     <div class="form-group m-3">
       <label class="mb-2 form-control" for="Entrenamiento">Entrenamiento Previo:</label>
       <select name="Entrenamiento" class="form-control" formControlName="Entrenamiento" id="Entrenamiento">
-        <option value=""></option>
+        <option value="1">Si</option>
+        <option value="0">No</option>
       </select>
     </div>
     <div class="form-group m-3">
@@ -69,7 +72,8 @@
     <div class="form-group m-3">
       <label class="mb-2 form-control" for="Lesion">Lesion Previa:</label>
       <select name="Lesion" class="form-control" formControlName="Lesion" id="Lesion">
-        <option value=""></option>
+        <option value="1">Si</option>
+        <option value="0">No</option>
       </select>
     </div>
     <div class="form-group m-3">
@@ -86,7 +90,7 @@
     </div>
 
 
-    <button type="submit" class="btn btn-primary form-control">Submit</button>
+    <button type="submit" class="btn btn-primary form-control mb-4">Submit</button>
   </form>
 
 </div>
