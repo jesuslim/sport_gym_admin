@@ -38,8 +38,11 @@ export class UsuariosListComponent implements OnInit{
   toDetails(id: string) {
     this.router.navigate(['./dashboard/usuarios/details/'+id]);
   }
-  destroy(){
+  destroy(id: any){
+    this.usuarioService.deleteUsuario(id).subscribe((response) => {
+      console.log('usuario eliminado');
 
+    });
   }
 
 }

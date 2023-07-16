@@ -21,7 +21,7 @@ export class UsuariosService {
     return this.http.post<any>(`${this.apiUrl}/create`, data);
   }
   updateUsuarios(data: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/update/${data.id}`, data);
+    return this.http.put<any>(`${this.apiUrl}/update/${data.ID_Miembro}`, data);
   }
   deleteUsuario(id: any): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);

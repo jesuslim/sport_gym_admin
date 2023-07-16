@@ -12,7 +12,7 @@ export class MunicipiosService {
   constructor( private http: HttpClient) { }
 
   getMunipios(): Observable<any>{
-    return this.http.get<any>(`${this.apiUrl}municipio`);
+    return this.http.get<any>(`${this.apiUrl}municipios`);
   }
   getMunicipiosByIdEstadoId(estadoId: any):Observable<any>{
     return this.http.get<any>(`${this.apiUrl}municipios/estado/${estadoId}`);

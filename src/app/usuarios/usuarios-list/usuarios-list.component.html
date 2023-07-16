@@ -57,7 +57,7 @@
                 <td>
                   <button (click)="toDetails(usuario.ID_Miembro)" class="btn btn-info">details</button>
                   <button (click)="toEdit(usuario.ID_Miembro)" class="btn btn-secondary">edit</button>
-                  <button (click)="destroy()" class="btn btn-danger">delete</button>
+                  <button (click)="destroy(usuario.ID_Miembro)" class="btn btn-danger">delete</button>
                 </td>
               </tr>
 
