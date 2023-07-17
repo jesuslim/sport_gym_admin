@@ -9,6 +9,11 @@ mat-sidenav-container {
   margin-left: 32px;
   display: flex;
   font-size: 2rem;
+  background-color: #1A1D56;
+ color: #ffffff;
+}
+.btn-primary{
+  background-color: #FECC09;
 }
 
 .avatar {

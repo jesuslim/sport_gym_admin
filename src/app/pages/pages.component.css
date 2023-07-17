@@ -5,6 +5,7 @@
 mat-toolbar {
  background-color: #1A1D56;
  color: #ffffff;
+ height: auto;
 }
 
 mat-sidenav-container {
