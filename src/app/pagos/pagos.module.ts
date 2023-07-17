@@ -4,6 +4,7 @@ import { PagosRoutingModule } from './pagos-routing.module';
 import { PagosCreateComponent } from './pagos-create/pagos-create.component';
 import { PagosEditComponent } from './pagos-edit/pagos-edit.component';
 import { PagosListComponent } from './pagos-list/pagos-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,9 @@ import { PagosListComponent } from './pagos-list/pagos-list.component';
   ],
   imports: [
     CommonModule,
-    PagosRoutingModule
+    PagosRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PagosModule { }
