@@ -1,4 +1,4 @@
-<mat-toolbar >
+<mat-toolbar>
   <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
     <mat-icon *ngIf="!sidenav.opened">
       menu
@@ -17,10 +17,10 @@
 
     <mat-divider></mat-divider>
 
-    <button mat-button color="light" class="menu-button">
+    <!-- <button mat-button color="light" class="menu-button">
       <mat-icon>home</mat-icon>
       <span class="btn-label"><a [routerLink]="['./dashboard']">Dashboard</a></span>
-    </button>
+    </button> -->
 
     <button mat-button color="light" class="menu-button">
       <mat-icon>person</mat-icon>
@@ -37,7 +37,7 @@
       <span class="btn-label"><a [routerLink]="['./pagos/list']">Pagos</a></span>
     </button>
 
-    <button mat-button color="light" class="menu-button" >
+    <button mat-button color="light" class="menu-button">
       <mat-icon>summarize</mat-icon>
       <span class="btn-label"><a [routerLink]="['./reportes/list']">Reportes</a></span>
     </button>
@@ -54,5 +54,3 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-
