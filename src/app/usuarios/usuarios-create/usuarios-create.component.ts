@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import { EstadosService } from 'src/app/services/estados.service';
 import { MunicipiosService } from 'src/app/services/municipios.service';
 import { PerfilesService } from 'src/app/services/perfiles.service';
@@ -44,7 +45,8 @@ constructor(
   private usuariosService: UsuariosService,
   private estadosService: EstadosService,
   private municipiosService: MunicipiosService,
-  private perfilesService: PerfilesService
+  private perfilesService: PerfilesService,
+  private router: Router
   ) {}
 
 ngOnInit(): void {
@@ -84,7 +86,7 @@ save(form: any) {
 console.log(form);
 this.usuariosService.saveUsuario(form).subscribe((response) => {
   console.log('creado ', response);
-
+  this.router.navigate(['./dashboard/usuarios/list']);
 });
 }
 

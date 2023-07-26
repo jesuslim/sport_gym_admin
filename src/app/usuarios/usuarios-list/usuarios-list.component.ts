@@ -41,7 +41,9 @@ export class UsuariosListComponent implements OnInit{
   destroy(id: any){
     this.usuarioService.deleteUsuario(id).subscribe((response) => {
       console.log('usuario eliminado');
-
+      this.router.navigate(['./dashboard/usuarios/list']).then(() => {
+        window.location.reload();
+      });
     });
   }
 

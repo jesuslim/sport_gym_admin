@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PagosService } from 'src/app/services/pagos.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 
@@ -19,7 +20,8 @@ export class PagosCreateComponent implements OnInit{
 constructor(
   private usuariosService: UsuariosService,
     private formBuilder: FormBuilder,
-    private pagosService: PagosService
+    private pagosService: PagosService,
+    private router: Router
 ) {
   this.filterForm = this.formBuilder.group({
     filterText: ['', Validators.required],
@@ -55,6 +57,7 @@ save(form: any) {
   console.log('formulario ',form);
   this.pagosService.createPago(form).subscribe((response) => {
     console.log('Pago tomado con exito');
+    this.router.navigate(['./dashboard/pagos/list']);
   });
 }
 }

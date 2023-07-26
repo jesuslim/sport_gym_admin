@@ -136,9 +136,17 @@ export class UsuariosEditComponent implements OnInit{
     this.usuarioService.updateUsuarios(form).subscribe((response) => {
       console.log('creado ', response);
     // TODO: Implement sweetAlert2 npm installation already made
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Your work has been saved',
+      showConfirmButton: false,
+      timer: 1500
+    }).then(()=>{
       this.router.navigate(['./dashboard/usuarios/list']).then(() => {
         window.location.reload();
-      });
+      })
+    })
     });
   }
 

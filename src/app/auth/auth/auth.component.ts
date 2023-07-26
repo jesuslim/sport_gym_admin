@@ -31,6 +31,12 @@ ngOnInit(): void {
 
 }
 login(form: any) {
+if (this.authForm.valid) {
+
+}else{
+  this.authForm.markAllAsTouched()
+}
+
   this.authService.loginAuth(form).subscribe((response) => {
     localStorage.setItem("ID_Usuario", response['ID_Miembro']);
     this.router.navigate(['dashboard/usuarios/list']);

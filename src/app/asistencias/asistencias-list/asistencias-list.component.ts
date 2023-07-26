@@ -41,7 +41,9 @@ toEdit(id: any){
 destroy(id: any) {
   this.asistenciasService.deleteAsistencias(id).subscribe((responce) => {
     console.log('asistencia eliminada ');
-
+    this.router.navigate(['./dashboard/asistencias/list']).then(() => {
+      window.location.reload();
+    });
   });
 }
 }

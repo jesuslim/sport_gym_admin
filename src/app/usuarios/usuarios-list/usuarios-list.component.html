@@ -1,11 +1,11 @@
 <div class="container p-3">
   <div class="row">
-    <p class="m-3">Usuarios</p>
+    <h2 class="m-3">Usuarios</h2>
 
     <div class="col-10">
       <div class="card ">
         <div class="card-header">
-          <p>Lista de Miembros</p>
+          <h4>Lista de Miembros</h4>
         </div>
         <div class="div d-flex flex-row-reverse">
           <button class="btn btn-primary m-3" (click)="toCreate()">Agragar Usuario</button>
@@ -55,9 +55,9 @@
                 <td> {{usuario.Objetivo}} </td>
                 <td> {{usuario.Matricula}} </td>
                 <td>
-                  <button (click)="toDetails(usuario.ID_Miembro)" class="btn btn-info">details</button>
-                  <button (click)="toEdit(usuario.ID_Miembro)" class="btn btn-secondary">edit</button>
-                  <button (click)="destroy(usuario.ID_Miembro)" class="btn btn-danger">delete</button>
+                  <button (click)="toDetails(usuario.ID_Miembro)" class="btn btn-info"><mat-icon>info</mat-icon></button>
+                  <button (click)="toEdit(usuario.ID_Miembro)" class="btn btn-secondary"><mat-icon>edit</mat-icon></button>
+                  <button (click)="destroy(usuario.ID_Miembro)" class="btn btn-danger"><mat-icon>delete</mat-icon></button>
                 </td>
               </tr>
 

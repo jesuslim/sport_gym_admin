@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { UsuariosDetailsComponent } from './usuarios-details/usuarios-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -23,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UsuariosRoutingModule,
     HttpClientModule,
     RouterModule,
+    MatIconModule,
     FormsModule,
     ReactiveFormsModule
   ]
