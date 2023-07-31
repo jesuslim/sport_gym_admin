@@ -67,7 +67,6 @@ console.log(form);
 this.asistenciasService.updateAsistencias(form).subscribe((response) => {
   console.log('Asistencias tomada con exito');
 
-  // TODO: Implement sweetAlert2 npm installation already made
   this.router.navigate(['./dashboard/asistencias/list']).then(() => {
     window.location.reload();
   });

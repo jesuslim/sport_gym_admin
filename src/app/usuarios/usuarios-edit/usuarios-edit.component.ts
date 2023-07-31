@@ -5,14 +5,14 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { EstadosService } from 'src/app/services/estados.service';
 import { MunicipiosService } from 'src/app/services/municipios.service';
 import { PerfilesService } from 'src/app/services/perfiles.service';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuarios-edit',
   templateUrl: './usuarios-edit.component.html',
   styleUrls: ['./usuarios-edit.component.css']
 })
-export class UsuariosEditComponent implements OnInit{
+export class UsuariosEditComponent implements OnInit {
   miembroId: string = '';
   miembroInfo: any[] = [];
   estados: any[] = [];
@@ -34,40 +34,39 @@ export class UsuariosEditComponent implements OnInit{
     private municipiosService: MunicipiosService,
     private perfilesService: PerfilesService,
     private router: Router
-    ) {}
+  ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe( params => {
+    this.activatedRoute.params.subscribe(params => {
       this.miembroId = params['id'];
     });
 
     this.usuarioForm = new FormGroup({
-    Nombre: new FormControl('', Validators.required),
-    Apellido_Paterno: new FormControl('', Validators.required),
-    Apellido_Materno: new FormControl('', Validators.required),
-    Matricula: new FormControl('', Validators.required),
-    ID_Perfil: new FormControl('', Validators.required),
-    Genero: new FormControl('', Validators.required),
-    Fecha_Nacimiento: new FormControl('', Validators.required),
-    Correo_Electronico: new FormControl('', Validators.required),
-    ID_Estado: new FormControl('', Validators.required),
-    ID_Municipio: new FormControl('', Validators.required),
-    Colonia: new FormControl('', Validators.required),
-    Codigo_Postal: new FormControl('', Validators.required),
-    Entrenamiento: new FormControl(''),
-    Tipo_Entrenamiento: new FormControl(''),
-    Lesion: new FormControl(''),
-    Tipo_Lesion: new FormControl(''),
-    Objetivo: new FormControl(''),
-    Contrasena: new FormControl('', Validators.required),
-    ID_Miembro: new FormControl(''),
-  });
+      Nombre: new FormControl('', Validators.required),
+      Apellido_Paterno: new FormControl('', Validators.required),
+      Apellido_Materno: new FormControl('', Validators.required),
+      Matricula: new FormControl('', Validators.required),
+      ID_Perfil: new FormControl('', Validators.required),
+      Genero: new FormControl('', Validators.required),
+      Fecha_Nacimiento: new FormControl('', Validators.required),
+      Correo_Electronico: new FormControl('', Validators.required),
+      ID_Estado: new FormControl('', Validators.required),
+      ID_Municipio: new FormControl('', Validators.required),
+      Colonia: new FormControl('', Validators.required),
+      Codigo_Postal: new FormControl('', Validators.required),
+      Entrenamiento: new FormControl(''),
+      Tipo_Entrenamiento: new FormControl(''),
+      Lesion: new FormControl(''),
+      Tipo_Lesion: new FormControl(''),
+      Objetivo: new FormControl(''),
+      ID_Miembro: new FormControl(''),
+    });
 
-  this.municipiosService.getMunipios().subscribe((response) => {
-    this.municipios = response;
-    console.log(this.municipios);
+    this.municipiosService.getMunipios().subscribe((response) => {
+      this.municipios = response;
+      console.log(this.municipios);
 
-  })
+    })
 
     this.findMiembro();
     this.findEstados();
@@ -75,7 +74,7 @@ export class UsuariosEditComponent implements OnInit{
   }
 
   findMiembro() {
-    console.log(' param ',this.miembroId);
+    console.log(' param ', this.miembroId);
     this.usuarioService.getUsuariosById(this.miembroId).subscribe((responce) => {
       this.miembroInfo = responce;
       console.log('miembro info ', this.miembroInfo[0]);
@@ -121,33 +120,42 @@ export class UsuariosEditComponent implements OnInit{
   }
 
   setMunicipios() {
-   this.option = document.getElementById('ID_Estado');
-   const selectedEstado = this.option.value;
-   console.log(selectedEstado);
-   this.municipiosService.getMunicipiosByIdEstadoId(selectedEstado).subscribe((response) => {
-    this.municipios = response;
-    console.log(this.municipios);
+    this.option = document.getElementById('ID_Estado');
+    const selectedEstado = this.option.value;
+    console.log(selectedEstado);
+    this.municipiosService.getMunicipiosByIdEstadoId(selectedEstado).subscribe((response) => {
+      this.municipios = response;
+      console.log(this.municipios);
 
-  })
+    })
 
   }
 
   update(form: any) {
-    this.usuarioService.updateUsuarios(form).subscribe((response) => {
-      console.log('creado ', response);
-    // TODO: Implement sweetAlert2 npm installation already made
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Your work has been saved',
-      showConfirmButton: false,
-      timer: 1500
-    }).then(()=>{
-      this.router.navigate(['./dashboard/usuarios/list']).then(() => {
-        window.location.reload();
-      })
-    })
-    });
+    this.usuarioService.updateUsuarios(form).subscribe(
+      (response) => {
+        console.log('creado ', response);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Miembro actualizado con exito',
+          showConfirmButton: false,
+          timer: 1500
+        }).then(() => {
+          this.router.navigate(['./dashboard/usuarios/list']).then(() => {
+            window.location.reload();
+          })
+        })
+      },
+      (err) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: err.error.messages.error,
+          showConfirmButton: false,
+          timer: 1500
+        })
+      });
   }
 
 }

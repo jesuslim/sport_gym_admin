@@ -1,0 +1,10 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+input.ng-touched.ng-invalid,
+select.ng-touched.ng-invalid {
+  border-color: #ff6862;
+}
+
+.ng-valid.ng-touched {
+  border-color: #42a948; /* green */
+}

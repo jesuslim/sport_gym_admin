@@ -1,7 +1,7 @@
 <div class="container form-container">
   <form role="form" [formGroup]="filterForm" (ngSubmit)="save(filterForm.value)">
     <div class="form-group m-3" [formGroup]="filterForm">
-      <label class="mb-2 form-control" for="Perfil">Selecciona un miembro:</label>
+      <label class="mb-2" for="Perfil">Selecciona un miembro:</label>
       <input type="text" class="form-control mb-2" formControlName="filterText" placeholder="Filtro de usuarios">
       <select
       name="ID_Miembro"
@@ -16,11 +16,11 @@
     </div>
 
     <div class="form-group m-3">
-      <label class="mb-2 form-control" for="Monto">Monto:</label>
+      <label class="mb-2" for="Monto">Monto:</label>
       <input type="text" class="form-control" id="Monto" formControlName="Monto">
     </div>
     <div class="form-group m-3">
-      <label class="mb-2 form-control" for="Metodo_Pago">Metodo de Pago:</label>
+      <label class="mb-2" for="Metodo_Pago">Metodo de Pago:</label>
       <select name="Metodo_Pago" class="form-control" id="Metodo_Pago" formControlName="Metodo_Pago">
         <option value="" selected disabled>Selecciona una opcion </option>
         <option value="Tarjeta de credito">Tarjeta de credito</option>

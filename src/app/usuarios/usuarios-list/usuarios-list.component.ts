@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from '../../services/usuarios.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuarios-list',
@@ -39,12 +40,31 @@ export class UsuariosListComponent implements OnInit{
     this.router.navigate(['./dashboard/usuarios/details/'+id]);
   }
   destroy(id: any){
-    this.usuarioService.deleteUsuario(id).subscribe((response) => {
-      console.log('usuario eliminado');
-      this.router.navigate(['./dashboard/usuarios/list']).then(() => {
-        window.location.reload();
-      });
-    });
+
+    Swal.fire({
+      title: '¿Estas seguro?',
+      text: "¿Quieres eliminar este registro?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, borralo!',
+      cancelButtonText: 'Cancelar'
+    }).then((result: any) => {
+      if (result.isConfirmed) {
+
+        this.usuarioService.deleteUsuario(id).subscribe((response) => {
+          console.log('usuario eliminado');
+          this.usuarios();
+          Swal.fire(
+            'Borrado!',
+            'El registro fue eliminado.',
+            'success'
+          )
+        });
+
+      }
+    })
   }
 
 }
