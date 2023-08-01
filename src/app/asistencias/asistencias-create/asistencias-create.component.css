@@ -1,0 +1,28 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+input.ng-touched.ng-invalid,
+select.ng-touched.ng-invalid {
+  border-color: #ff6862;
+}
+
+.ng-valid.ng-touched {
+  border-color: #42a948; /* green */
+}
+.container{
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 12px;
+}
+label {
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 12px;
+
+}
+/* select option {
+  display: none;
+}
+
+select option[selected] {
+  display: block;
+} */

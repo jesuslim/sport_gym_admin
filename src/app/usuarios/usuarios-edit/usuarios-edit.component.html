@@ -1,1 +1,92 @@
-<p>usuarios-edit works!</p>
+<div class="container form-container">
+  <form role="form" [formGroup]="usuarioForm" (ngSubmit)="update(usuarioForm.value)">
+    <div class="form-group m-3">
+      <label class="mb-2" for="Nombre">Nombre:</label>
+      <input type="text" class="form-control" formControlName="Nombre" id="Nombre">
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Apellido_Paterno">Apellido Paterno:</label>
+      <input type="text" class="form-control" formControlName="Apellido_Paterno" id="Apellido_Paterno">
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Apellido_Materno">Apellido Materno:</label>
+      <input type="text" class="form-control" formControlName="Apellido_Materno" id="Apellido_Materno">
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Matricula">Matricula de UNEDL:</label>
+      <input type="text" class="form-control" formControlName="Matricula" id="Matricula">
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Perfil">Programa al que Perteneces:</label>
+      <select name="ID_Perfil" class="form-control" formControlName="ID_Perfil" id="ID_Perfil">
+        <option *ngFor="let perfil of perfiles" value="{{perfil.ID_Perfil}}">{{perfil.Nombre}}</option>
+      </select>
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Genero">Genero</label>
+      <select name="Genero" class="form-control" formControlName="Genero" id="Genero">
+        <option value="Masculino">Masculino</option>
+        <option value="Femenino">Femenino</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Fecha_Nacimiento">Fecha Nacimiento:</label>
+      <input type="date" class="form-control" formControlName="Fecha_Nacimiento" id="Fecha_Nacimiento" >
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Correo_Electronico">Correo Electronico:</label>
+      <input type="email" class="form-control" formControlName="Correo_Electronico" id="Correo_Electronico">
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Estado">Estado:</label>
+      <select name="ID_Estado" class="form-control" formControlName="ID_Estado" id="ID_Estado" (change)="setMunicipios()">
+        <option *ngFor="let estado of estados" value="{{estado.ID_Estado}}">{{estado.Estado}}</option>
+      </select>
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Municipio">Municipio:</label>
+      <select name="ID_Municipio" class="form-control" formControlName="ID_Municipio" id="ID_Municipio">
+        <option *ngFor="let municipio of municipios" value="{{municipio.ID_Municipio}}">{{municipio.Municipio}}</option>
+      </select>
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Colonia">Colonia:</label>
+      <input type="text" class="form-control" formControlName="Colonia" id="Colonia">
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Codigo_Postal">Codigo Postal:</label>
+      <input type="text" class="form-control" formControlName="Codigo_Postal" id="Codigo_Postal">
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Entrenamiento">Entrenamiento Previo:</label>
+      <select name="Entrenamiento" class="form-control" formControlName="Entrenamiento" id="Entrenamiento">
+        <option value="1">Si</option>
+        <option value="0">No</option>
+      </select>
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Tipo_Entrenamiento">Tipo de Entrenamiento:</label>
+      <input type="text" class="form-control" formControlName="Tipo_Entrenamiento" id="Tipo_Entrenamiento">
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Lesion">Lesion Previa:</label>
+      <select name="Lesion" class="form-control" formControlName="Lesion" id="Lesion">
+        <option value="1">Si</option>
+        <option value="0">No</option>
+      </select>
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Tipo_Lesion">Tipo de Lesion</label>
+      <input type="text" class="form-control" formControlName="Tipo_Lesion" id="Tipo_Lesion">
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Objetivo">Objetivo:</label>
+      <input type="text" class="form-control" formControlName="Objetivo" id="Objetivo">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary form-control mb-4">Submit</button>
+  </form>
+
+</div>

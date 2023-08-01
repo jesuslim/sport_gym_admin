@@ -1,1 +1,74 @@
-<p>usuarios-list works!</p>
+<div class="container p-3">
+  <div class="row">
+    <h2 class="m-3">Usuarios</h2>
+
+    <div class="col-10">
+      <div class="card ">
+        <div class="card-header">
+          <h4>Lista de Miembros</h4>
+        </div>
+        <div class="div d-flex flex-row-reverse">
+          <button class="btn btn-primary m-3" (click)="toCreate()">Agragar Usuario</button>
+        </div>
+        <div class="card-body ">
+
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th scope="col"> Nombre </th>
+                <th scope="col"> Apellido Paterno </th>
+                <th scope="col"> Apellido Materno </th>
+                <th scope="col"> Perfil </th>
+                <th scope="col"> Correo_Electronico </th>
+                <th scope="col"> Genero </th>
+                <th scope="col"> Estado </th>
+                <th scope="col"> Municipio </th>
+                <th scope="col"> Colonia </th>
+                <th scope="col"> Codigo_Postal </th>
+                <th scope="col"> Fecha_Nacimiento </th>
+                <th scope="col"> Entrenamiento </th>
+                <th scope="col"> Tipo_Entrenamiento </th>
+                <th scope="col"> Lesion </th>
+                <th scope="col"> Tipo_Lesion </th>
+                <th scope="col"> Objetivo </th>
+                <th scope="col"> Matricula </th>
+                <th scope="col"> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor=" let usuario of users">
+                <td> {{usuario.Nombre}} </td>
+                <td> {{usuario.Apellido_Paterno}} </td>
+                <td> {{usuario.Apellido_Materno}} </td>
+                <td> {{usuario.Perfil}} </td>
+                <td> {{usuario.Correo_Electronico}} </td>
+                <td> {{usuario.Genero}} </td>
+                <td> {{usuario.Estado}} </td>
+                <td> {{usuario.Municipio}} </td>
+                <td> {{usuario.Colonia}} </td>
+                <td> {{usuario.Codigo_Postal}} </td>
+                <td> {{usuario.Fecha_Nacimiento}} </td>
+                <td> {{usuario.Entrenamiento}} </td>
+                <td> {{usuario.Tipo_Entrenamiento}} </td>
+                <td> {{usuario.Lesion}} </td>
+                <td> {{usuario.Tipo_Lesion}} </td>
+                <td> {{usuario.Objetivo}} </td>
+                <td> {{usuario.Matricula}} </td>
+                <td>
+                  <button (click)="toDetails(usuario.ID_Miembro)" class="btn btn-info"><mat-icon>info</mat-icon></button>
+                  <button (click)="toEdit(usuario.ID_Miembro)" class="btn btn-secondary"><mat-icon>edit</mat-icon></button>
+                  <button (click)="destroy(usuario.ID_Miembro)" class="btn btn-danger"><mat-icon>delete</mat-icon></button>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>

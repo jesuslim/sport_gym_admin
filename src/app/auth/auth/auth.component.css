@@ -1,3 +1,14 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+input.ng-touched.ng-invalid,
+select.ng-touched.ng-invalid {
+  border-color: #ff6862;
+}
+
+.ng-valid.ng-touched {
+  border-color: #42a948; /* green */
+}
+
 mat-sidenav-container {
   height: calc( 100vh - 65px );
 }
@@ -9,6 +20,11 @@ mat-sidenav-container {
   margin-left: 32px;
   display: flex;
   font-size: 2rem;
+  background-color: #1A1D56;
+ color: #ffffff;
+}
+.btn-primary{
+  background-color: #936B28;
 }
 
 .avatar {

@@ -1,6 +1,7 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pages',
@@ -12,7 +13,11 @@ export class PagesComponent {
 
   sidenav!: MatSidenav;
 
-  constructor( private observer: BreakpointObserver, private cd: ChangeDetectorRef) {}
+  constructor(
+    private observer: BreakpointObserver,
+    private cd: ChangeDetectorRef,
+    private router: Router
+    ) {}
 
   ngAfterViewInit() {
 
@@ -27,5 +32,10 @@ export class PagesComponent {
 
     })
     this.cd.detectChanges();
+  }
+
+  logOut() {
+    localStorage.removeItem('ID_Usuario'); // remove sesion on logout
+    this.router.navigate(['/login'])
   }
 }

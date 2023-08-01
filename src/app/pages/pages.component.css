@@ -5,6 +5,7 @@
 mat-toolbar {
  background-color: #1A1D56;
  color: #ffffff;
+ height: auto;
 }
 
 mat-sidenav-container {
@@ -44,6 +45,7 @@ mat-sidenav {
   mat-icon, span, a {
     margin-right: 8px;
     color: #ffffff;
+    text-decoration: none;
   }
 }
 
@@ -54,6 +56,8 @@ mat-sidenav {
   margin-left: 32px;
   display: flex;
   font-size: 2rem;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
 mat-divider {
@@ -64,3 +68,8 @@ mat-divider {
 mat-sidenav-content {
   height: calc( 100vh - 65px );
 }
+
+a{
+  color: #ffffff;
+  text-decoration: none;
+  }

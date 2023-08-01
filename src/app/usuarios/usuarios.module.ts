@@ -4,6 +4,11 @@ import { UsuariosListComponent } from './usuarios-list/usuarios-list.component';
 import { UsuariosCreateComponent } from './usuarios-create/usuarios-create.component';
 import { UsuariosEditComponent } from './usuarios-edit/usuarios-edit.component';
 import { UsuariosRoutingModule } from './usuarios-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { UsuariosDetailsComponent } from './usuarios-details/usuarios-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -11,11 +16,17 @@ import { UsuariosRoutingModule } from './usuarios-routing.module';
   declarations: [
     UsuariosListComponent,
     UsuariosCreateComponent,
-    UsuariosEditComponent
+    UsuariosEditComponent,
+    UsuariosDetailsComponent
   ],
   imports: [
     CommonModule,
-    UsuariosRoutingModule
+    UsuariosRoutingModule,
+    HttpClientModule,
+    RouterModule,
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UsuariosModule { }
