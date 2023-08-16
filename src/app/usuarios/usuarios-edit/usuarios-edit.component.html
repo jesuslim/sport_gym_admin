@@ -17,9 +17,18 @@
       <input type="text" class="form-control" formControlName="Matricula" id="Matricula">
     </div>
     <div class="form-group m-3">
-      <label class="mb-2" for="Perfil">Programa al que Perteneces:</label>
-      <select name="ID_Perfil" class="form-control" formControlName="ID_Perfil" id="ID_Perfil">
+      <label class="mb-2" for="Perfil">Perfil al que Pertenece:</label>
+      <select name="ID_Perfil" class="form-control" formControlName="ID_Perfil" id="ID_Perfil" required
+        title="Campo requerido">
         <option *ngFor="let perfil of perfiles" value="{{perfil.ID_Perfil}}">{{perfil.Nombre}}</option>
+      </select>
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Perfil">Programa al que Perteneces:</label>
+      <select name="ID_Licenciatura" class="form-control" formControlName="ID_Licenciaturas" id="ID_Licenciaturas"
+        required title="Campo requerido">
+        <option *ngFor="let licenciatura of licenciaturas" value="{{licenciatura.ID_Licenciaturas}}">
+          {{licenciatura.Nombre}}</option>
       </select>
     </div>
     <div class="form-group m-3">
@@ -32,7 +41,7 @@
     </div>
     <div class="form-group m-3">
       <label class="mb-2" for="Fecha_Nacimiento">Fecha Nacimiento:</label>
-      <input type="date" class="form-control" formControlName="Fecha_Nacimiento" id="Fecha_Nacimiento" >
+      <input type="date" class="form-control" formControlName="Fecha_Nacimiento" id="Fecha_Nacimiento">
     </div>
     <div class="form-group m-3">
       <label class="mb-2" for="Correo_Electronico">Correo Electronico:</label>
@@ -40,7 +49,8 @@
     </div>
     <div class="form-group m-3">
       <label class="mb-2" for="Estado">Estado:</label>
-      <select name="ID_Estado" class="form-control" formControlName="ID_Estado" id="ID_Estado" (change)="setMunicipios()">
+      <select name="ID_Estado" class="form-control" formControlName="ID_Estado" id="ID_Estado"
+        (change)="setMunicipios()">
         <option *ngFor="let estado of estados" value="{{estado.ID_Estado}}">{{estado.Estado}}</option>
       </select>
     </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EstadosService } from 'src/app/services/estados.service';
+import { LicenciaturasService } from 'src/app/services/licenciaturas.service';
 import { MunicipiosService } from 'src/app/services/municipios.service';
 import { PerfilesService } from 'src/app/services/perfiles.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
@@ -20,6 +21,7 @@ export class UsuariosCreateComponent implements OnInit {
     Apellido_Materno: ['', Validators.required],
     Matricula: ['', Validators.required],
     ID_Perfil: ['', Validators.required],
+    ID_Licenciaturas: ['', Validators.required],
     Genero: ['', Validators.required],
     Fecha_Nacimiento: ['', Validators.required],
     Correo_Electronico: ['', Validators.required],
@@ -38,6 +40,7 @@ export class UsuariosCreateComponent implements OnInit {
   municipios: any[] = [];
   perfiles: any[] = [];
   option: any = '';
+  licenciaturas: any[] = [];
   /**
    *
    */
@@ -47,12 +50,14 @@ export class UsuariosCreateComponent implements OnInit {
     private estadosService: EstadosService,
     private municipiosService: MunicipiosService,
     private perfilesService: PerfilesService,
+    private licenciaturasService: LicenciaturasService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
     this.findEstados();
     this.findPerfiles();
+    this.findLicenciaturas();
 
   }
   findEstados() {
@@ -82,6 +87,12 @@ export class UsuariosCreateComponent implements OnInit {
 
     })
 
+  }
+  findLicenciaturas() {
+    this.licenciaturasService.getLicenciatura().subscribe(
+      (responce) => {
+        this.licenciaturas = responce;
+      });
   }
   save(form: any) {
 

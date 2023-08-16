@@ -7,20 +7,32 @@
     </div>
     <div class="form-group m-3">
       <label class="mb-2" for="Apellido_Paterno">Apellido Paterno:</label>
-      <input type="text" class="form-control" formControlName="Apellido_Paterno" id="Apellido_Paterno" required title="Campo requerido">
+      <input type="text" class="form-control" formControlName="Apellido_Paterno" id="Apellido_Paterno" required
+        title="Campo requerido">
     </div>
     <div class="form-group m-3">
       <label class="mb-2" for="Apellido_Materno">Apellido Materno:</label>
-      <input type="text" class="form-control" formControlName="Apellido_Materno" id="Apellido_Materno" required title="Campo requerido">
+      <input type="text" class="form-control" formControlName="Apellido_Materno" id="Apellido_Materno" required
+        title="Campo requerido">
     </div>
     <div class="form-group m-3">
       <label class="mb-2" for="Matricula">Matricula de UNEDL:</label>
-      <input type="text" class="form-control" formControlName="Matricula" id="Matricula" required title="Campo requerido">
+      <input type="text" class="form-control" formControlName="Matricula" id="Matricula" required
+        title="Campo requerido">
+    </div>
+    <div class="form-group m-3">
+      <label class="mb-2" for="Perfil">Perfil al que Pertenece:</label>
+      <select name="ID_Perfil" class="form-control" formControlName="ID_Perfil" id="ID_Perfil" required
+        title="Campo requerido">
+        <option *ngFor="let perfil of perfiles" value="{{perfil.ID_Perfil}}">{{perfil.Nombre}}</option>
+      </select>
     </div>
     <div class="form-group m-3">
       <label class="mb-2" for="Perfil">Programa al que Perteneces:</label>
-      <select name="ID_Perfil" class="form-control" formControlName="ID_Perfil" id="ID_Perfil" required title="Campo requerido">
-        <option *ngFor="let perfil of perfiles" value="{{perfil.ID_Perfil}}">{{perfil.Nombre}}</option>
+      <select name="ID_Licenciaturas" class="form-control" formControlName="ID_Licenciaturas" id="ID_Licenciaturas"
+        required title="Campo requerido">
+        <option *ngFor="let licenciatura of licenciaturas" value="{{licenciatura.ID_Licenciaturas}}">
+          {{licenciatura.Nombre}}</option>
       </select>
     </div>
     <div class="form-group m-3">
@@ -33,21 +45,25 @@
     </div>
     <div class="form-group m-3">
       <label class="mb-2" for="Fecha_Nacimiento">Fecha Nacimiento:</label>
-      <input type="date" class="form-control" formControlName="Fecha_Nacimiento" id="Fecha_Nacimiento" required title="Campo requerido" >
+      <input type="date" class="form-control" formControlName="Fecha_Nacimiento" id="Fecha_Nacimiento" required
+        title="Campo requerido">
     </div>
     <div class="form-group m-3">
       <label class="mb-2" for="Correo_Electronico">Correo Electronico:</label>
-      <input type="email" class="form-control" formControlName="Correo_Electronico" id="Correo_Electronico" required title="Campo requerido">
+      <input type="email" class="form-control" formControlName="Correo_Electronico" id="Correo_Electronico" required
+        title="Campo requerido">
     </div>
     <div class="form-group m-3">
       <label class="mb-2" for="Estado">Estado:</label>
-      <select name="ID_Estado" class="form-control" formControlName="ID_Estado" id="ID_Estado" (change)="setMunicipios()" required title="Campo requerido">
+      <select name="ID_Estado" class="form-control" formControlName="ID_Estado" id="ID_Estado"
+        (change)="setMunicipios()" required title="Campo requerido">
         <option *ngFor="let estado of estados" value="{{estado.ID_Estado}}">{{estado.Estado}}</option>
       </select>
     </div>
     <div class="form-group m-3">
       <label class="mb-2" for="Municipio">Municipio:</label>
-      <select name="ID_Municipio" class="form-control" formControlName="ID_Municipio" id="ID_Municipio" required title="Campo requerido">
+      <select name="ID_Municipio" class="form-control" formControlName="ID_Municipio" id="ID_Municipio" required
+        title="Campo requerido">
         <option *ngFor="let municipio of municipios" value="{{municipio.ID_Municipio}}">{{municipio.Municipio}}</option>
       </select>
     </div>
@@ -57,7 +73,8 @@
     </div>
     <div class="form-group m-3">
       <label class="mb-2" for="Codigo_Postal">Codigo Postal:</label>
-      <input type="text" class="form-control" formControlName="Codigo_Postal" id="Codigo_Postal" required title="Campo requerido">
+      <input type="text" class="form-control" formControlName="Codigo_Postal" id="Codigo_Postal" required
+        title="Campo requerido">
     </div>
     <div class="form-group m-3">
       <label class="mb-2" for="Entrenamiento">Entrenamiento Previo:</label>
@@ -87,7 +104,8 @@
     </div>
     <div class="form-group m-3">
       <label class="mb-2" for="Contrasena">Contraseña:</label>
-      <input type="text" class="form-control" formControlName="Contrasena" id="Contrasena" required title="Campo requerido">
+      <input type="text" class="form-control" formControlName="Contrasena" id="Contrasena" required
+        title="Campo requerido">
     </div>
 
 

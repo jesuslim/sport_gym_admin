@@ -6,6 +6,7 @@ import { EstadosService } from 'src/app/services/estados.service';
 import { MunicipiosService } from 'src/app/services/municipios.service';
 import { PerfilesService } from 'src/app/services/perfiles.service';
 import Swal from 'sweetalert2';
+import { LicenciaturasService } from 'src/app/services/licenciaturas.service';
 
 @Component({
   selector: 'app-usuarios-edit',
@@ -19,6 +20,7 @@ export class UsuariosEditComponent implements OnInit {
   municipios: any[] = [];
   perfiles: any[] = [];
   option: any = '';
+  licenciaturas: any[] = [];
 
   usuarioForm: FormGroup = new FormGroup({})
 
@@ -32,6 +34,7 @@ export class UsuariosEditComponent implements OnInit {
     private formBuilder: FormBuilder,
     private estadosService: EstadosService,
     private municipiosService: MunicipiosService,
+    private licenciaturasService: LicenciaturasService,
     private perfilesService: PerfilesService,
     private router: Router
   ) { }
@@ -47,6 +50,7 @@ export class UsuariosEditComponent implements OnInit {
       Apellido_Materno: new FormControl('', Validators.required),
       Matricula: new FormControl('', Validators.required),
       ID_Perfil: new FormControl('', Validators.required),
+      ID_Licenciaturas: new FormControl('', Validators.required),
       Genero: new FormControl('', Validators.required),
       Fecha_Nacimiento: new FormControl('', Validators.required),
       Correo_Electronico: new FormControl('', Validators.required),
@@ -71,6 +75,8 @@ export class UsuariosEditComponent implements OnInit {
     this.findMiembro();
     this.findEstados();
     this.findPerfiles();
+    this.findLicenciaturas();
+
   }
 
   findMiembro() {
@@ -83,6 +89,7 @@ export class UsuariosEditComponent implements OnInit {
       this.usuarioForm.controls['Apellido_Materno'].setValue(this.miembroInfo[0].Apellido_Materno)
       this.usuarioForm.controls['Matricula'].setValue(this.miembroInfo[0].Matricula)
       this.usuarioForm.controls['ID_Perfil'].setValue(this.miembroInfo[0].ID_Perfil)
+      this.usuarioForm.controls['ID_Licenciaturas'].setValue(this.miembroInfo[0].ID_Licenciaturas)
       this.usuarioForm.controls['Genero'].setValue(this.miembroInfo[0].Genero)
       this.usuarioForm.controls['Fecha_Nacimiento'].setValue(this.miembroInfo[0].Fecha_Nacimiento)
       this.usuarioForm.controls['Correo_Electronico'].setValue(this.miembroInfo[0].Correo_Electronico)
@@ -117,6 +124,13 @@ export class UsuariosEditComponent implements OnInit {
     this.perfilesService.getPerfiles().subscribe((response) => {
       this.perfiles = response;
     });
+  }
+
+  findLicenciaturas() {
+    this.licenciaturasService.getLicenciatura().subscribe(
+      (responce) => {
+        this.licenciaturas = responce;
+      });
   }
 
   setMunicipios() {
