@@ -34,13 +34,13 @@
                 <td> {{usuario.Perfil}} </td>
                 <td> {{usuario.programa}} </td>
                 <td> {{usuario.Correo_Electronico}} </td>
-                <td>
-                  <button (click)="toDetails(usuario.ID_Miembro)"
-                    class="btn btn-info"><mat-icon>info</mat-icon></button>
-                  <button (click)="toEdit(usuario.ID_Miembro)"
-                    class="btn btn-secondary"><mat-icon>edit</mat-icon></button>
-                  <button (click)="destroy(usuario.ID_Miembro)"
-                    class="btn btn-danger"><mat-icon>delete</mat-icon></button>
+                <td class="">
+                  <button (click)="toDetails(usuario.ID_Miembro)" class="btn btn-info"
+                    style="width: 75px;"><mat-icon>info</mat-icon></button>
+                  <button (click)="toEdit(usuario.ID_Miembro)" class="btn btn-success"
+                    style="width: 75px;"><mat-icon>edit</mat-icon></button>
+                  <button (click)="destroy(usuario.ID_Miembro)" class="btn btn-danger"
+                    style="width: 75px;"><mat-icon>delete</mat-icon></button>
                 </td>
               </tr>
 
