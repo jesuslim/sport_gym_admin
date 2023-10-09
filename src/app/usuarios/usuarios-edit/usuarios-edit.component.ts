@@ -44,26 +44,27 @@ export class UsuariosEditComponent implements OnInit {
       this.miembroId = params['id'];
     });
 
-    this.usuarioForm = new FormGroup({
-      Nombre: new FormControl('', Validators.required),
-      Apellido_Paterno: new FormControl('', Validators.required),
-      Apellido_Materno: new FormControl('', Validators.required),
-      Matricula: new FormControl('', Validators.required),
-      ID_Perfil: new FormControl('', Validators.required),
-      ID_Licenciaturas: new FormControl('', Validators.required),
-      Genero: new FormControl('', Validators.required),
-      Fecha_Nacimiento: new FormControl('', Validators.required),
-      Correo_Electronico: new FormControl('', Validators.required),
-      ID_Estado: new FormControl('', Validators.required),
-      ID_Municipio: new FormControl('', Validators.required),
-      Colonia: new FormControl('', Validators.required),
-      Codigo_Postal: new FormControl('', Validators.required),
-      Entrenamiento: new FormControl(''),
-      Tipo_Entrenamiento: new FormControl(''),
-      Lesion: new FormControl(''),
-      Tipo_Lesion: new FormControl(''),
-      Objetivo: new FormControl(''),
-      ID_Miembro: new FormControl(''),
+    this.usuarioForm = this.formBuilder.group({
+      Nombre: ['', Validators.required],
+      Apellido_Paterno: ['', Validators.required],
+      Apellido_Materno: ['', Validators.required],
+      Matricula: ['', [Validators.required, Validators.pattern(/^[0-9]{2}[A-Z]{2}[0-9]{7}$/)]],
+      ID_Perfil: ['', Validators.required],
+      ID_Licenciaturas: ['', Validators.required],
+      Genero: ['', Validators.required],
+      Fecha_Nacimiento: ['', Validators.required],
+      Correo_Electronico: ['', Validators.required],
+      ID_Estado: ['', Validators.required],
+      ID_Municipio: ['', Validators.required],
+      Colonia: ['', Validators.required],
+      Codigo_Postal: ['', Validators.required],
+      Entrenamiento: [''],
+      Tipo_Entrenamiento: [''],
+      Lesion: [''],
+      Tipo_Lesion: [''],
+      Objetivo: [''],
+      Contrasena: ['', Validators.required],
+      ConfirmarContrasena: ['', Validators.required],
     });
 
     this.municipiosService.getMunipios().subscribe((response) => {
@@ -145,7 +146,37 @@ export class UsuariosEditComponent implements OnInit {
 
   }
 
+  limitarLongitudYNumeros(event: any) {
+    const input = event.target;
+    const inputValue = input.value;
+
+    // Remover caracteres que no sean números
+    const numericValue = inputValue.replace(/[^0-9]/g, '');
+
+    // Limitar la longitud a 5 caracteres
+    const limitedValue = numericValue.slice(0, 5);
+
+    // Actualizar el valor del campo
+    input.value = limitedValue;
+
+    // Actualizar el valor en el formulario (si es necesario)
+    this.usuarioForm.get('Codigo_Postal')?.setValue(limitedValue);
+  }
+
+  validarNoNumerico(event: any) {
+    const input = event.target;
+    const inputValue = input.value;
+
+    // Remover dígitos numéricos
+    const nonNumericValue = inputValue.replace(/[0-9]/g, '');
+
+    // Actualizar el valor del campo
+    input.value = nonNumericValue;
+  }
+
   update(form: any) {
+    console.log('edit', form);
+    form.ID_Miembro = this.miembroId;
     this.usuarioService.updateUsuarios(form).subscribe(
       (response) => {
         console.log('creado ', response);

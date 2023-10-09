@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "https://quaggier-stitches.000webhostapp.com",
+    "secure": false
+  }
+}
