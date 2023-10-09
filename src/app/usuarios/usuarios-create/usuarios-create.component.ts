@@ -53,7 +53,7 @@ export class UsuariosCreateComponent implements OnInit {
       Tipo_Lesion: [''],
       Objetivo: [''],
       Contrasena: ['', Validators.required],
-      ConfirmarContrasena: ['', Validators.required],
+      ConfirmarContrasena: [''],
     },
       {
         // Validación personalizada para comparar la contraseña y la confirmación
@@ -143,42 +143,29 @@ export class UsuariosCreateComponent implements OnInit {
 
   save(form: any) {
 
-    if (this.usuarioForm.valid) {
+    this.usuariosService.saveUsuario(form).subscribe(
+      (response) => {
+        console.log('creado ', response);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Miembro registrado con exito',
+          showConfirmButton: false,
+          timer: 1500
+        }).then(() => {
+          this.router.navigate(['./dashboard/usuarios/list']);
+        })
+      },
+      (err) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: err.error.messages.error,
+          showConfirmButton: false,
+          timer: 1500
+        })
+      });
 
-      this.usuariosService.saveUsuario(form).subscribe(
-        (response) => {
-          console.log('creado ', response);
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Miembro registrado con exito',
-            showConfirmButton: false,
-            timer: 1500
-          }).then(() => {
-            this.router.navigate(['./dashboard/usuarios/list']);
-          })
-        },
-        (err) => {
-          Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: err.error.messages.error,
-            showConfirmButton: false,
-            timer: 1500
-          })
-        });
-    } else {
-      Swal.fire({
-        position: 'center',
-        icon: 'error',
-        title: 'Llena todos los campos obligatotios',
-        showConfirmButton: false,
-        timer: 1500
-      }).then(() => {
-        this.usuarioForm.markAllAsTouched()
-      })
-    }
-    console.log(form);
   }
 
 }

@@ -19,7 +19,7 @@
     <div class="form-group m-3">
       <label class="mb-2" for="Matricula">Matricula de UNEDL:</label>
       <input type="text" class="form-control" formControlName="Matricula" id="Matricula" required
-        title="Campo requerido">
+        title="Campo requerido" oninput="this.value = this.value.toUpperCase();">
     </div>
     <div *ngIf="usuarioForm.get('Matricula')?.hasError('pattern')" style="color: red;">
       El formato de la matrícula no es válido.
