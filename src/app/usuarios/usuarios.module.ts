@@ -17,7 +17,8 @@ import { MatIconModule } from '@angular/material/icon';
     UsuariosListComponent,
     UsuariosCreateComponent,
     UsuariosEditComponent,
-    UsuariosDetailsComponent
+    UsuariosDetailsComponent,
+
   ],
   imports: [
     CommonModule,
@@ -26,7 +27,8 @@ import { MatIconModule } from '@angular/material/icon';
     RouterModule,
     MatIconModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ]
 })
 export class UsuariosModule { }

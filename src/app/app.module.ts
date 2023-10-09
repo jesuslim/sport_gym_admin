@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PagesModule } from './pages/pages.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { AuthModule } from './auth/auth.module';
+import { ReportesModule } from './reportes/reportes.module';
 
 
 
@@ -24,7 +25,9 @@ import { AuthModule } from './auth/auth.module';
     NgbModule,
     PagesModule,
     UsuariosModule,
-    AuthModule
+    AuthModule,
+    ReportesModule
+
 
   ],
   providers: [],

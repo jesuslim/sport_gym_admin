@@ -1,1 +1,44 @@
-<p>reportes-view works!</p>
+<div class="container p-3">
+  <div class="row">
+    <h2 class="m-3">Asistencias</h2>
+
+    <div class="col-10">
+      <div class="div d-flex flex-row-reverse">
+        <button class="btn btn-primary m-3" (click)="imprimir()">Imprimir</button>
+      </div>
+      <div class="card" id="report">
+        <div class="card-header">
+          <h4>Segimiento de Asistencias</h4>
+        </div>
+        <div class="card-body ">
+
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th scope="col"> Matricula </th>
+                <th scope="col"> Miembro </th>
+                <th scope="col"> Perfil </th>
+                <th scope="col"> Programa </th>
+                <th scope="col"> Fecha </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor=" let asistencia of asistencias">
+                <td> {{asistencia.Matricula}} </td>
+                <td> {{asistencia.Nombre +' '+ asistencia.Apellido_Paterno}} </td>
+                <td> {{asistencia.Perfil}} </td>
+                <td> {{asistencia.programa}} </td>
+                <td> {{asistencia.Fecha}} </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>

@@ -35,21 +35,18 @@ export class AuthComponent implements OnInit {
     if (this.authForm.valid) {
       this.authService.loginAuth(form).subscribe(
         (response) => {
-        localStorage.setItem("ID_Usuario", response['ID_Miembro']);
-        this.router.navigate(['dashboard/usuarios/list']);
-      },
-      (err) => {
-// {"status":400,"error":400,"messages":{"error":"Contraseña invalida "}}
-console.log();
-
-        Swal.fire({
-          position: 'center',
-          icon: 'error',
-          title: err.error.messages.error,
-          showConfirmButton: false,
-          timer: 1500
-        })
-      });
+          localStorage.setItem("ID_Usuario", response['ID_Miembro']);
+          this.router.navigate(['dashboard/usuarios/list']);
+        },
+        (err) => {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: err.error.messages.error,
+            showConfirmButton: false,
+            timer: 1500
+          })
+        });
     } else {
       Swal.fire({
         position: 'center',
